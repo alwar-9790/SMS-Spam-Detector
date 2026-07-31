@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="app-shell">
+        <header class="hero">
+            <div class="badge">Result</div>
+            <h1>Classification Complete</h1>
+            <p>Your message has been reviewed by the model.</p>
+        </header>
+
+        <main class="content">
+            <div class="card">
+                {% if prediction == 1 %}
+                <div class="result-card spam">
+                    <span class="result-badge">⚠ Suspicious</span>
+                    <h2>Spam</h2>
+                    <p>This message looks like unsolicited or malicious content.</p>
+                </div>
+                {% elif prediction == 0 %}
+                <div class="result-card safe">
+                    <span class="result-badge">✓ Safe</span>
+                    <h2>Not Spam</h2>
+                    <p>This appears to be a normal and legitimate message.</p>
+                </div>
+                {% endif %}
+
+                <div class="link-row">
+                    <a href="{{ url_for('home') }}">Try another message</a>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

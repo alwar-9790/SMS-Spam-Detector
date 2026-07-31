@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="app-shell">
+        <header class="hero">
+            <div class="badge">AI-powered screening</div>
+            <h1>SMS Spam Detector</h1>
+            <p>Paste a message and let the model classify it as legitimate or suspicious in seconds.</p>
+        </header>
+
+        <main class="content">
+            <div class="card">
+                <form action="{{ url_for('predict') }}" method="POST">
+                    <label for="message">Enter an SMS message</label>
+                    <textarea id="message" name="message" placeholder="Example: Hi, your parcel is waiting for pickup..."></textarea>
+                    <div class="helper-row">
+                        <span>Fast, simple, and privacy-friendly</span>
+                        <button class="btn" type="submit">Check Message</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
